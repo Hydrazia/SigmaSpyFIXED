@@ -176,9 +176,21 @@ function Ui:LoadReGui()
 	--// ReGui
 	local PrefabsId = "rbxassetid://" .. ReGui.PrefabsId
 	ReGui:DefineTheme("SigmaSpy", ThemeConfig)
+	
+	--// Try to load prefabs, use fallback if it fails
+	local success, prefabs = pcall(function()
+		return InsertService:LoadLocalAsset(PrefabsId)
+	end)
+	
 	ReGui:Init({
-		Prefabs = InsertService:LoadLocalAsset(PrefabsId)
+		Prefabs = success and prefabs or nil,
+		UseFallbackPrefabs = not success
 	})
+	
+	--// Show warning if prefabs failed to load
+	if not success then
+		print("[Sigma Spy] Warning: Failed to load prefabs, using fallback prefabs instead.")
+	end
 end
 
 type CreateButtons = {
