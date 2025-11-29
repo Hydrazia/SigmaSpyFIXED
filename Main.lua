@@ -140,5 +140,4 @@ Ui:BeginLogService()
 
 --// Load hooks
 local ActorCode = Files:MakeActorScript(Scripts, ChannelId)
-
 Hook:LoadHooks(ActorCode, ChannelId)
