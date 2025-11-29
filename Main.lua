@@ -22,7 +22,7 @@ local Configuration = {
 	UseWorkspace = false, 
 	NoActors = false,
 	RepoUrl = "https://raw.githubusercontent.com/BoostCC/SigmaSpyFIXED/refs/heads/main",
-	ParserUrl = "https://raw.githubusercontent.com/depthso/Roblox-parser/refs/heads/main/",
+	ParserUrl = "https://raw.githubusercontent.com/depthso/Roblox-parser/refs/heads/main/"
 }
 
 --// Load overwrites
@@ -58,7 +58,7 @@ Files:Init({
 })
 
 --// Load our fixed UI module directly
-local UiScript = readfile("c:/Users/asdas/Downloads/spy-main/spy-main/lib/Ui_fixed.lua")
+local UiScript = game:HttpGet("https://raw.githubusercontent.com/BoostCC/SigmaSpyFIXED/refs/heads/main/lib/Ui.lua")
 local Ui = loadstring(UiScript)()
 
 --// Modules (excluding Ui which we load separately)
@@ -135,4 +135,3 @@ local ActorCode = Files:MakeActorScript(Scripts, ChannelId)
 Hook:LoadHooks(ActorCode, ChannelId)
 
 print("Sigma Spy loaded successfully with asset error bypass!")
-
